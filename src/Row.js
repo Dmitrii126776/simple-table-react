@@ -2,7 +2,7 @@ import React from 'react';
 import DropDownModal from "./DropDownModal";
 
 const Row = (props) => {
-    const {task, deleteTask} = props
+    const {task, deleteTask, updateTask} = props
     return (
         <>
             <td><strong>{task.job}</strong></td>
@@ -10,7 +10,7 @@ const Row = (props) => {
             <td>${task.primeCost}</td>
             <td>{task.employee}</td>
             <td>
-                <DropDownModal task={task} deleteTask={deleteTask}/>
+                <DropDownModal task={task} updateTask={updateTask} deleteTask={deleteTask}/>
             </td>
         </>
     );

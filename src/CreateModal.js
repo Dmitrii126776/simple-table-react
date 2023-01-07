@@ -42,7 +42,7 @@ function CreateModal(props) {
                 <ModalHeader toggle={toggle}>Create New Task</ModalHeader>
                 <ModalBody>
                     <div className="input-group mb-3">
-                        <span className="input-group-text" id="basic-addon1">Name</span>
+                        <span className="input-group-text" id="basic-addon1">Name of job</span>
                         <input type="text" className="form-control"
                                aria-describedby="basic-addon1"
                                value={job} onChange={(e) => setJob(e.target.value)}
@@ -50,14 +50,14 @@ function CreateModal(props) {
                     </div>
                     <div className="input-group mb-3">
                         <span className="input-group-text" id="basic-addon1">Price</span>
-                        <input type="text" className="form-control"
+                        <input type="number" className="form-control"
                                aria-describedby="basic-addon1"
                                value={price} onChange={(e) => setPrice(e.target.value)}
                         />
                     </div>
                     <div className="input-group mb-3">
-                        <span className="input-group-text" id="basic-addon1">Price Cost</span>
-                        <input type="text" className="form-control"
+                        <span className="input-group-text" id="basic-addon1">Prime Cost</span>
+                        <input type="number" className="form-control"
                                aria-describedby="basic-addon1"
                                value={primeCost} onChange={(e) => setPrimeCost(e.target.value)}
                         />

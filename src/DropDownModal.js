@@ -7,25 +7,33 @@ import {
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import DeleteModal from "./DeleteModal";
+import UpdateModal from "./UpdateModal";
 
 function DropDownModal(props) {
 
-    const {task, deleteTask} = props
+    const {task, deleteTask, updateTask} = props
 
     const [dropdownOpen, setDropdownOpen] = useState(false);
-
     const toggle = () => setDropdownOpen((prevState) => !prevState);
 
     const [modalDelete, setModalDelete] = useState(false);
-
     const toggleDelete = () => setModalDelete(!modalDelete);
+
+    const [modalUpdate, setModalUpdate] = useState(false);
+    const toggleUpdate = () => setModalUpdate(!modalUpdate);
 
     return (
         <div className="d-flex p-15">
             <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-                <DropdownToggle caret>Action</DropdownToggle>
+                <DropdownToggle caret></DropdownToggle>
                 <DropdownMenu>
-                    <DropdownItem>Update</DropdownItem>
+                    <DropdownItem>
+                        <Button color="success" onClick={toggleUpdate}>
+                            Update
+                        </Button>
+                    </DropdownItem>
+                    <UpdateModal task={task} updateTask={updateTask}
+                                 modal={modalUpdate} toggle={toggleUpdate}/>
                     <DropdownItem>
                         <Button color="danger" onClick={toggleDelete}>
                             Delete

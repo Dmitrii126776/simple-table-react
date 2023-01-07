@@ -21,6 +21,11 @@ function App() {
         setTasks([...tasks, newTask])
     }
 
+    const updateTask = (updatedTask) => {
+        const newTask = tasks.map(el => el.id === updatedTask.id ? {...updatedTask} : el)
+        setTasks(newTask)
+    }
+
     const deleteTask = (id) => {
         console.log(id)
         setTasks(tasks.filter(el => el.id !== id))
@@ -30,7 +35,7 @@ function App() {
         <div className="App">
             <h1>List of Jobs</h1>
             <CreateModal tasks={tasks} addNewTask={addNewTask}/>
-            <TableItems headers={headers} tasks={tasks} deleteTask={deleteTask}/>
+            <TableItems headers={headers} tasks={tasks} deleteTask={deleteTask} updateTask={updateTask}/>
         </div>
     );
 }
